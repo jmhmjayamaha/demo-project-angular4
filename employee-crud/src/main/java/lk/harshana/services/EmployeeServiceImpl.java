@@ -28,24 +28,34 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public Employee findEmployee(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return empRepository.findById(id);
 	}
 
 	@Override
 	public Employee findEmployeeByFirstName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+		return empRepository.findByFirstName(name);
 	}
 
 	@Override
 	public void updateEmployee(int id, Employee employee) {
+		Employee emp = empRepository.findById(id);
 		
+		if(emp != null) {
+			employee.setId(id);
+			empRepository.save(employee);
+		}
 		
 	}
 
 	@Override
 	public boolean deleteEmployee(int id) {
-		// TODO Auto-generated method stub
+		Employee emp = empRepository.findById(id);
+		
+		if(emp != null) {
+			empRepository.delete(emp);
+			return true;
+		}
 		return false;
 	}
 

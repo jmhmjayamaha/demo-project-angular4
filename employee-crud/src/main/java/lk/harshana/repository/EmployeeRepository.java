@@ -6,5 +6,6 @@ import lk.harshana.entity.Employee;
 
 public interface EmployeeRepository extends CrudRepository<Employee, Integer>{
 
-//	Employee findByFirstName();
+	Employee findByFirstName(String name);
+	Employee findById(int id);
 }
