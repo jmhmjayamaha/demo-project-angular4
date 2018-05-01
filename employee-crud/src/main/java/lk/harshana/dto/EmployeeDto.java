@@ -1,57 +1,21 @@
-package lk.harshana.entity;
+package lk.harshana.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "EMPLOYEE_INFORMATION")
-public class Employee {
+public class EmployeeDto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "emp_id")
-	private int id;
+	@NotNull
 	private String firstName;
 	private String lastName;
 	private int age;
 	private String gender;
 	private String address;
 	private String email;
+	@NotNull
 	private String telNo;
-	
-	public Employee() {
-		
-	}
-
-	public Employee(String firstName, String lastName, int age, String gender, String address, String email,
-			String telNo) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.age = age;
-		this.gender = gender;
-		this.address = address;
-		this.email = email;
-		this.telNo = telNo;
-	}
-
-
 
 	public String getFirstName() {
 		return firstName;
-	}
-
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public void setFirstName(String firstName) {
@@ -105,6 +69,5 @@ public class Employee {
 	public void setTelNo(String telNo) {
 		this.telNo = telNo;
 	}
-	
-	
+
 }
